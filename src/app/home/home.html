@@ -1,0 +1,248 @@
+<main class="portfolio-page" id="top">
+  <!-- HERO SECTION - Full Bleed -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="hero-title">ธนากร เกษสาคร</h1>
+      <p class="hero-tagline">Front-end Developer & IoT Enthusiast</p>
+      <p class="hero-badge">Portfolio | Front-end Developer + IoT</p>
+      <p class="hero-summary">
+        นักศึกษา IT มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน
+        ที่หลงใหลในการพัฒนาเว็บ Front-end และระบบ IoT
+        พร้อมสร้างสรรค์ผลงานที่มีคุณค่าและใช้งานได้จริง
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">🚀 ดูผลงาน</a>
+        <a class="btn btn-secondary" href="#contact">📧 ติดต่อ</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-icon"></div>
+      <span>เลื่อนลง</span>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section about-section" id="about" aria-labelledby="about-title">
+    <div class="section-header">
+      <h2 id="about-title">About Me</h2>
+      <p>เกี่ยวกับตัวผมและเส้นทางสาย IT</p>
+    </div>
+    <div class="about-content">
+      <div class="about-profile">
+        <div class="profile-image-wrapper">
+          <img src="/profile.jpg" alt="ธนากร เกษสาคร" class="profile-image" />
+          <div class="profile-glow"></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>สวัสดีครับ! 👋 ผม ธนากร</h3>
+        <p>
+          ผมเป็นนักศึกษาสาขาเทคโนโลยีสารสนเทศ มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน
+          มีความสนใจในการพัฒนาเว็บแอปพลิเคชัน Front-end และระบบ IoT
+          ชอบเรียนรู้เทคโนโลยีใหม่ๆ และนำมาประยุกต์ใช้ในโปรเจคจริง
+        </p>
+        <p>
+          เป้าหมายของผมคือการเป็นนักพัฒนาที่สามารถสร้าง Front-end ที่สวยงามและใช้งานง่าย
+          รวมถึงระบบ IoT ที่เชื่อมต่อโลกดิจิทัลกับอุปกรณ์จริง เช่น ระบบเตือนภัยอัจฉริยะ
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">โปรเจค</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20</div>
+          <div class="stat-label">Repositories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">ทักษะ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="section-header">
+      <h2 id="skills-title">Skills & Technologies</h2>
+      <p>ทักษะและเทคโนโลยีที่ผมใช้งาน</p>
+    </div>
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.title) {
+        <article class="skill-card">
+          <div class="skill-card-header">
+            <div class="skill-icon">
+              @switch (group.title) {
+                @case ('Front-end Development') { 💻 }
+                @case ('IoT & Mobile Development') { 📱 }
+                @case ('Tools & DevOps') { 🛠️ }
+              }
+            </div>
+            <h3>{{ group.title }}</h3>
+          </div>
+          <ul class="skill-list">
+            @for (item of group.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+    <div class="section-head">
+      <h2 id="projects-title">Featured Projects</h2>
+      <div class="filter" role="group" aria-label="Project filter">
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeTrack() === 'all'"
+          (click)="setTrack('all')"
+        >
+          ทั้งหมด
+        </button>
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeTrack() === 'frontend'"
+          (click)="setTrack('frontend')"
+        >
+          💻 Front-end
+        </button>
+        <button
+          type="button"
+          class="filter-btn"
+          [class.active]="activeTrack() === 'iot'"
+          (click)="setTrack('iot')"
+        >
+          🔌 IoT
+        </button>
+      </div>
+    </div>
+
+    <div class="project-grid">
+      @for (project of filteredProjects(); track project.title) {
+        <article class="project-card">
+          <p class="project-type" [class]="project.type">{{ project.type }}</p>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <p class="project-highlight">💡 {{ project.highlight }}</p>
+
+          <ul class="stack-list" aria-label="Tech stack">
+            @for (tech of project.stack; track tech) {
+              <li>{{ tech }}</li>
+            }
+          </ul>
+
+          <div class="project-links">
+            <a [href]="project.repoUrl" target="_blank" rel="noreferrer">Repository</a>
+            <a [href]="project.demoUrl" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- IOT DEMO SECTION -->
+  <section class="section demo-section" id="iot-demo" aria-labelledby="demo-title">
+    <div class="section-header">
+      <h2 id="demo-title">🚨 IoT Demo: Gas Leak Detector</h2>
+      <p>ทดลองใช้งานระบบเตือนแก๊สรั่วอัจฉริยะ</p>
+    </div>
+    
+    <div class="demo-info">
+      <div class="demo-features">
+        <h3>📱 คุณสมบัติของแอป</h3>
+        <ul>
+          <li>🔍 แสดงค่าแก๊ส (MQ-2) แบบ Real-time</li>
+          <li>🌡️ แสดงอุณหภูมิและความชื้น (DHT11)</li>
+          <li>📊 กราฟข้อมูลย้อนหลัง 24 ชั่วโมง</li>
+          <li>🔊 ควบคุมเสียงแจ้งเตือน เปิด/ปิด</li>
+          <li>🔄 รีเซ็ทค่า Sensor ได้</li>
+          <li>📲 แจ้งเตือนบนโทรศัพท์เมื่อแก๊สรั่ว</li>
+        </ul>
+      </div>
+      <div class="demo-tech">
+        <h3>🛠️ เทคโนโลยีที่ใช้</h3>
+        <div class="tech-tags">
+          <span>ESP32</span>
+          <span>MQ-2 Sensor</span>
+          <span>DHT11</span>
+          <span>Flutter</span>
+          <span>Firebase</span>
+          <span>LINE Notify</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-container">
+      <iframe 
+        src="/iot-demo.html" 
+        title="Gas Leak Detector Demo"
+        class="demo-iframe"
+        loading="lazy"
+      ></iframe>
+    </div>
+    
+    <p class="demo-note">
+      💡 <strong>วิธีใช้:</strong> ลองปรับค่า Sensors ทางขวา และกดปุ่มควบคุมบนหน้าจอมือถือ
+    </p>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <div class="section-header">
+      <h2 id="experience-title">Experience & Education</h2>
+      <p>ประสบการณ์และการศึกษา</p>
+    </div>
+    <div class="timeline">
+      @for (item of experiences; track item.period + item.role) {
+        <article class="timeline-item">
+          <p class="timeline-period">{{ item.period }}</p>
+          <h3>{{ item.role }}</h3>
+          <p>{{ item.details }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section section-contact" id="contact" aria-labelledby="contact-title">
+    <div class="section-header">
+      <h2 id="contact-title">Get In Touch</h2>
+      <p>ติดต่อผมได้ที่</p>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:tanakon.ket&#64;ku.th" class="contact-item">
+        <div class="contact-icon">📧</div>
+        <span>Email</span>
+        <strong>tanakon.ket&#64;ku.th</strong>
+      </a>
+      <a href="tel:08xxxxxxxx" class="contact-item">
+        <div class="contact-icon">📱</div>
+        <span>Phone</span>
+        <strong>08x-xxx-xxxx</strong>
+      </a>
+      <a href="https://github.com/TanakonKetsakron" target="_blank" rel="noreferrer" class="contact-item">
+        <div class="contact-icon">🐙</div>
+        <span>GitHub</span>
+        <strong>TanakonKetsakron</strong>
+      </a>
+      <a href="https://linkedin.com/in/tanakon-ketsakron" target="_blank" rel="noreferrer" class="contact-item">
+        <div class="contact-icon">💼</div>
+        <span>LinkedIn</span>
+        <strong>tanakon-ketsakron</strong>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2569 ธนากร เกษสาคร. Built with Angular 💜</p>
+  </footer>
+</main>
