@@ -87,7 +87,7 @@ export class HomeComponent {
       stack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
       highlight: 'ออกแบบ UI/UX สำหรับธุรกิจจริง พร้อมระบบคำนวณงบประมาณ',
       repoUrl: 'https://github.com/TanakonKetsakron/Web_Erp',
-      demoUrl: 'https://github.com/TanakonKetsakron/Web_Erp',
+      demoUrl: 'https://tanakonketsakron.github.io/Web_Erp/home.html',
     },
     {
       title: 'Docker & DevOps Learning',
