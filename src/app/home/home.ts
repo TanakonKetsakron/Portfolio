@@ -50,6 +50,16 @@ export class HomeComponent {
 
   readonly projects: PortfolioProject[] = [
     {
+      title: 'BANG EX LOGISTICS',
+      type: 'frontend',
+      description:
+        'แอปหรือเว็ปไซส์ การขนส่งด้วยรถห้องเย็นและระบบการติดตาม POS พัฒนาด้วย HTML, CSS และ JavaScript พร้อมระบบตรวจสอบการส่งของพนักงาน',
+      stack: ['HTML5', 'CSS3', 'JavaScript', 'POS'],
+      highlight: 'BANG EX LOGISTICS เว็ปไซส์ การขนส่งสินค้าด้วยระบบแช่แข็ง',
+      repoUrl: 'https://github.com/TanakonKetsakron/Bang_ExV2',
+      demoUrl: 'https://tanakonketsakron.github.io/Bang_ExV2/',
+    },
+    {
       title: 'Smart Security Alert System',
       type: 'iot',
       description:
